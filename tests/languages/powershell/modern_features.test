@@ -1,0 +1,87 @@
+# Modern PowerShell 7+ features test
+
+# PowerShell 7+ keywords and syntax
+enum MyEnum {
+    Value1
+    Value2
+}
+
+class MyClass {
+    [string] $Name
+    hidden [int] $Value
+    static [string] $Type = "Test"
+    
+    MyClass([string] $name) {
+        $this.Name = $name
+    }
+}
+
+# Modern cmdlets that should be highlighted
+Get-Secret
+Set-Secret
+Mount-VHD
+Unmount-VHD
+Configuration MyConfig {
+    Node localhost {
+        # Configuration content
+    }
+}
+
+----------------------------------------------------
+
+[
+	["comment", "# Modern PowerShell 7+ features test"],
+
+	["comment", "# PowerShell 7+ keywords and syntax"],
+	["keyword", "enum"], " MyEnum ", ["punctuation", "{"],
+	"\r\n    Value1\r\n    Value2\r\n",
+	["punctuation", "}"],
+
+	["keyword", "class"],
+	" MyClass ",
+	["punctuation", "{"],
+
+	["namespace", "[string]"],
+	["variable", "$Name"],
+
+	["keyword", "hidden"],
+	["namespace", "[int]"],
+	["variable", "$Value"],
+
+	["keyword", "static"],
+	["namespace", "[string]"],
+	["variable", "$Type"],
+	" = ",
+	["string", ["\"Test\""]],
+
+	"\r\n    \r\n    MyClass",
+	["punctuation", "("],
+	["namespace", "[string]"],
+	["variable", "$name"],
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["variable", "$this"],
+	["punctuation", "."],
+	"Name = ",
+	["variable", "$name"],
+
+	["punctuation", "}"],
+
+	["punctuation", "}"],
+
+	["comment", "# Modern cmdlets that should be highlighted"],
+	["function", "Get-Secret"],
+	["function", "Set-Secret"],
+	["function", "Mount-VHD"],
+	["function", "Unmount-VHD"],
+	["keyword", "Configuration"], " MyConfig ", ["punctuation", "{"],
+	["keyword", "Node"], " localhost ", ["punctuation", "{"],
+	["comment", "# Configuration content"],
+	["punctuation", "}"],
+	["punctuation", "}"]
+]
+
+----------------------------------------------------
+
+Testing modern PowerShell 7+ features including enums, classes, and newer cmdlets.
